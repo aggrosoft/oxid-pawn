@@ -1,0 +1,24 @@
+{
+  "name": "aggrosoft/oxid-pawn",
+  "description": "Add pawn per article",
+  "type": "oxideshop-module",
+  "keywords": ["oxid", "modules", "eShop", "pawn"],
+  "homepage": "https://github.com/aggrosoft/oxid-pawn",
+  "license": "MIT",
+  "extra": {
+    "oxideshop": {
+      "blacklist-filter": [
+        "documentation/**/*.*"
+      ],
+      "target-directory": "agpawn"
+    }
+  },
+  "require": {
+    "php": ">=7.0.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Aggrosoft\\Pawn\\": "../../../source/modules/agpawn"
+    }
+  }
+}
