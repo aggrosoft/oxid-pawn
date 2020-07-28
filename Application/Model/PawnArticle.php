@@ -11,8 +11,9 @@ class PawnArticle extends PawnArticle_parent
      */
     public function getPawn()
     {
-        return 0.08;
-        return $this->oxarticles__agpawn->value;
+        if ($this->oxarticles__agispwan->value){
+            return $this->oxarticles__agpawn->value > 0 ? $this->oxarticles__agpawn->value : \OxidEsales\Eshop\Core\Registry::getConfig()->getConfigParam('fDefaultPawn', null, 'module:agpawn');
+        }
     }
 
     /**
@@ -27,6 +28,14 @@ class PawnArticle extends PawnArticle_parent
     {
         $dPrice = $this->getPawn();
         $oPrice = $this->_getPriceObject();
+        if (\OxidEsales\Eshop\Core\Registry::getConfig()->getConfigParam('blPawnVatOnTop', null, 'module:agpawn')) {
+            $oPrice->setNettoPriceMode();
+        } else {
+            $oPrice->setBruttoPriceMode();
+        }
+
+        $fPawnVATPercent = $this->getArticleVat();
+        $oPrice->setVat($fPawnVATPercent);
         $oPrice->setPrice($dPrice);
         $this->_calculatePrice($oPrice);
         return $oPrice;

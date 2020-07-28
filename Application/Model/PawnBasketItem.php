@@ -9,6 +9,15 @@ class PawnBasketItem extends PawnBasketItem_parent
     /**
      * Get pawn value
      */
+    public function getPawnPrice()
+    {
+        $oArticle = $this->getArticle();
+        return $oArticle->getPawnPrice();
+    }
+
+    /**
+     * Get pawn value
+     */
     public function getPawn()
     {
         $oArticle = $this->getArticle();
@@ -27,9 +36,21 @@ class PawnBasketItem extends PawnBasketItem_parent
     /**
      * Get total pawn
      */
+    public function getTotalPawnPrice()
+    {
+        $oPawnPrice = $this->getPawnPrice();
+        $oTotalPawnPrice = clone $oPawnPrice;
+        $oTotalPawnPrice->multiply($this->getAmount());
+        return $oTotalPawnPrice;
+    }
+
+
+    /**
+     * Get total pawn
+     */
     public function getTotalPawn()
     {
-        return ($this->getPawn() * $this->getAmount());
+        return $this->getPawn() * $this->getAmount();
     }
 
     /**

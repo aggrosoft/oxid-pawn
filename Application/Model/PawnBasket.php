@@ -6,6 +6,13 @@ namespace Aggrosoft\Pawn\Application\Model;
 class PawnBasket extends PawnBasket_parent
 {
 
+    public function getPawnCosts(){
+        $oPawnCost = $this->getCosts('agpawn');
+        if ($oPawnCost && $oPawnCost->getBruttoPrice()) {
+            return $oPawnCost->getBruttoPrice();
+        }
+    }
+
     protected function _calcTotalPrice() // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
     {
         parent::_calcTotalPrice();
