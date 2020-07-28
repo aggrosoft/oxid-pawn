@@ -1,6 +1,6 @@
 <?php
 
-$sMetadataVersion = '1.1';
+$sMetadataVersion = '2.0';
 
 $aModule = array(
     'id'           => 'agpawn',
@@ -10,7 +10,7 @@ $aModule = array(
     'version'      => '1.0.0',
     'author'       => 'Aggrosoft GmbH',
     'extend'      => array(
-        \OxidEsales\Eshop\Application\Model\Article::class => \Aggrosoft\PercentOff\Application\Model\PawnArticle::class
+        \OxidEsales\Eshop\Application\Model\Article::class => \Aggrosoft\Pawn\Application\Model\PawnArticle::class
     ),
     'settings' => array(
         array('group' => 'agpawn_settings', 'name' => 'fDefaultPawn',  'type' => 'str',   'value' => ''),
