@@ -11,7 +11,7 @@ class PawnArticle extends PawnArticle_parent
      */
     public function getPawn()
     {
-        if ($this->oxarticles__agispwan->value){
+        if ($this->oxarticles__agispawn->value){
             return $this->oxarticles__agpawn->value > 0 ? $this->oxarticles__agpawn->value : \OxidEsales\Eshop\Core\Registry::getConfig()->getConfigParam('fDefaultPawn', null, 'module:agpawn');
         }
     }
