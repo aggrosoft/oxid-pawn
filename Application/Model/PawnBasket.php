@@ -3,8 +3,7 @@
 
 namespace Aggrosoft\Pawn\Application\Model;
 
-
-class PawnBasket
+class PawnBasket extends PawnBasket_parent
 {
 
     protected function _calcTotalPrice() // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore

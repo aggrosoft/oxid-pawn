@@ -3,7 +3,7 @@
 
 namespace Aggrosoft\Pawn\Application\Model;
 
-class PawnArticle
+class PawnArticle extends PawnArticle_parent
 {
 
     /**

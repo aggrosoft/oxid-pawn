@@ -4,7 +4,7 @@
 namespace Aggrosoft\Pawn\Application\Model;
 
 
-class PawnBasketItem
+class PawnBasketItem extends PawnBasketItem_parent
 {
     /**
      * Get pawn value
