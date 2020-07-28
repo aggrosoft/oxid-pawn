@@ -7,10 +7,10 @@ $aModule = array(
     'title'        => 'Article Pawn',
     'description'  => 'Show and configure article pawn',
     'thumbnail'    => '',
-    'version'      => '1.0.0',
+    'version'      => '1.0.1',
     'author'       => 'Aggrosoft GmbH',
     'extend'      => array(
-        \OxidEsales\Eshop\Application\Model\Article::class => \Aggrosoft\Pawn\Application\Model\PawnArticle::class
+        \OxidEsales\Eshop\Application\Model\Article::class => Aggrosoft\Pawn\Application\Model\PawnArticle::class
     ),
     'settings' => array(
         array('group' => 'agpawn_settings', 'name' => 'fDefaultPawn',  'type' => 'str',   'value' => ''),

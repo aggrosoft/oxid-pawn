@@ -37,6 +37,6 @@ class PawnBasketItem
      */
     public function getFTotalPawn()
     {
-        oxRegistry::getLang()->formatCurrency($this->getTotalPawn());
+        \OxidEsales\Eshop\Core\Registry::getLang()->formatCurrency($this->getTotalPawn());
     }
 }

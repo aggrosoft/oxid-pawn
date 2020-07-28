@@ -20,7 +20,7 @@ class PawnArticle
      */
     public function getFPawn()
     {
-        return oxRegistry::getLang()->formatCurrency( $this->getPawn() );
+        return \OxidEsales\Eshop\Core\Registry::getLang()->formatCurrency( $this->getPawn() );
     }
 
     public function getPawnPrice()
