@@ -7,10 +7,7 @@ class PawnBasket extends PawnBasket_parent
 {
 
     public function getPawnCosts(){
-        $oPawnCost = $this->getCosts('agpawn');
-        if ($oPawnCost && $oPawnCost->getBruttoPrice()) {
-            return $oPawnCost->getBruttoPrice();
-        }
+        return $this->getCosts('agpawn');
     }
 
     protected function _calcTotalPrice() // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
@@ -26,12 +23,7 @@ class PawnBasket extends PawnBasket_parent
     protected function _calcPawnCost() // phpcs:ignore PSR2.Methods.MethodDeclaration.Underscore
     {
         $oPawnPrice = oxNew(\OxidEsales\Eshop\Core\Price::class);
-
-        if (\OxidEsales\Eshop\Core\Registry::getConfig()->getConfigParam('blPawnVatOnTop', null, 'module:agpawn')) {
-            $oPawnPrice->setNettoPriceMode();
-        } else {
-            $oPawnPrice->setBruttoPriceMode();
-        }
+        $oPawnPrice->setBruttoPriceMode();
 
         $fPawnVATPercent = $this->getAdditionalServicesVatPercent();
         $oPawnPrice->setVat($fPawnVATPercent);
@@ -40,6 +32,10 @@ class PawnBasket extends PawnBasket_parent
             if ($oBasketItem->getTotalPawn()){
                 $oPawnPrice->add($oBasketItem->getTotalPawn());
             }
+        }
+
+        if ($this->isCalculationModeNetto() && \OxidEsales\Eshop\Core\Registry::getConfig()->getConfigParam('blPawnVatOnTop', null, 'module:agpawn')) {
+            $oPawnPrice->setPrice(\OxidEsales\Eshop\Core\Price::netto2brutto($oPawnPrice->getPrice(),$fPawnVATPercent));
         }
 
         return $oPawnPrice;
