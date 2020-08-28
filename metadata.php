@@ -7,12 +7,13 @@ $aModule = array(
     'title'        => 'Article Pawn',
     'description'  => 'Show and configure article pawn',
     'thumbnail'    => '',
-    'version'      => '1.0.4',
+    'version'      => '1.0.5',
     'author'       => 'Aggrosoft GmbH',
     'extend'      => array(
         \OxidEsales\Eshop\Application\Model\Article::class => Aggrosoft\Pawn\Application\Model\PawnArticle::class,
         \OxidEsales\Eshop\Application\Model\Basket::class => Aggrosoft\Pawn\Application\Model\PawnBasket::class,
         \OxidEsales\Eshop\Application\Model\Order::class => Aggrosoft\Pawn\Application\Model\PawnOrder::class,
+        \OxidEsales\Eshop\Application\Model\OrderArticle::class => Aggrosoft\Pawn\Application\Model\PawnOrderArticle::class,
         \OxidEsales\Eshop\Application\Model\BasketItem::class => Aggrosoft\Pawn\Application\Model\PawnBasketItem::class
     ),
     'settings' => array(
